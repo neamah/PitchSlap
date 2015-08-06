@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RecordSoundsViewController.swift
 //  PitchSlap
 //
 //  Created by Neamah Hussein on 8/3/15.
@@ -8,14 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class RecordSoundsViewController: UIViewController {
     
     @IBOutlet weak var recordingNow: UILabel!
     @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var micButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        stopButton.hidden = true
+        micButton.enabled = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,11 +33,10 @@ class ViewController: UIViewController {
     //IB Action means it's an Interfact builder, which means it's
     //linked to the storyboard or something similar
     @IBAction func recordAudio(sender: UIButton) {
-        
         //TODO: Record the audio
-        
         recordingNow.hidden = false
         stopButton.hidden = false
+        micButton.enabled = false
         println("UI Button hit");
     }
     
